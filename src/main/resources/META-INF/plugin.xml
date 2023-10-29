@@ -28,4 +28,5 @@
         <toolWindow id="QuickFileGrabber" anchor="right"
                     factoryClass="easybraindev.quickfilegrabber.controller.QuickFileGrabberToolWindowFactory"/>
     </extensions>
+    <idea-version since-build="232" until-build="290.*"/>
 </idea-plugin>

@@ -7,3 +7,13 @@ C
 ]src/main/java/easybraindev/quickfilegrabber/controller/QuickFileGrabberToolWindowFactory.java,5\b\5baeb6f6594d18379c32cdcf1ce04f6fdf0ce612
 Å
 Qsrc/main/java/easybraindev/quickfilegrabber/controller/QuickFileGrabberPanel.java,0\4\041ff6521955c7b173f338f9c44077dad0264b56
+|
+Lsrc/main/java/easybraindev/quickfilegrabber/domain/FileSelectionHandler.java,2\3\23d04ee0fcd587fe005172d243131817716f17e8
+u
+Esrc/main/java/easybraindev/quickfilegrabber/domain/FileFormatter.java,5\a\5af4db3367267ae87be6f755b9787b5a5380859a
+x
+Hsrc/main/java/easybraindev/quickfilegrabber/domain/ClipboardManager.java,8\a\8a9b0c711b6e0894f3799d99b867a6a5ecc61306
+å
+\src/main/java/easybraindev/quickfilegrabber/usecases/CopyFilesContentToClipboardUseCase.java,6\1\61b957e02967121771ed55a13c39aece3837ed42
+s
+Csrc/main/java/easybraindev/quickfilegrabber/domain/FileManager.java,9\5\95b66b47d6d0543023858679f9a6420e144faa1d

@@ -6,6 +6,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import easybraindev.quickfilegrabber.domain.ClipboardManager;
 import easybraindev.quickfilegrabber.domain.FileFormatter;
 import easybraindev.quickfilegrabber.domain.FileManager;
+import easybraindev.quickfilegrabber.domain.FormattingConfiguration;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class CopyFilesContentToClipboardUseCase {
         this.clipboardManager = clipboardManager;
     }
 
-    public void execute(List<String> fileNames) {
+    public void execute(List<String> fileNames, FormattingConfiguration config) {
         StringBuilder filesContent = new StringBuilder();
 
         for (String fileName : fileNames) {
@@ -30,7 +31,7 @@ public class CopyFilesContentToClipboardUseCase {
                 Document document = FileDocumentManager.getInstance().getDocument(file);
                 if (document != null) {
                     String fileContent = document.getText();
-                    filesContent.append(fileFormatter.formatFileContent(fileName, fileContent)).append("\n\n");
+                    filesContent.append(fileFormatter.formatFileContent(fileName, fileContent, config)).append("\n\n");
                 }
             }
         }

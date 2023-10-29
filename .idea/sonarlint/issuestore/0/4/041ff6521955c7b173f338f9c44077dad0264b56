@@ -1,3 +1,15 @@
 
 K
-java:S1948")Make "project" transient or serializable.(¥ Û¦şÿÿÿÿ8ÏƒÙ·1
+java:S1948")Make "project" transient or serializable.(¥ Û¦şÿÿÿÿ8‚‚ß·1
+J
+java:S1948 "-Make "fileManager" transient or serializable.(•¤Ñ8‚‚ß·1
+N
+java:S1948!"2Make "clipboardManager" transient or serializable.(ÄûÉ8‚‚ß·1
+L
+java:S1948""/Make "fileFormatter" transient or serializable.(Ú•ô8‚‚ß·1
+f
+java:S1948#"DMake "copyFilesContentToClipboardUseCase" transient or serializable.(ßˆËØÿÿÿÿÿ8‚‚ß·1
+c
+java:S1128"ARemove this unused import 'com.intellij.openapi.editor.Document'.(¬€üûÿÿÿÿ8œ‚‚ß·1
+m
+java:S1128"PRemove this unused import 'com.intellij.openapi.fileEditor.FileDocumentManager'.(È…¼Ú8‚‚ß·1

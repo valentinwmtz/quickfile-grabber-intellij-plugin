@@ -8,10 +8,7 @@ import com.intellij.openapi.fileEditor.FileEditorManagerListener;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.messages.MessageBusConnection;
-import easybraindev.quickfilegrabber.domain.ClipboardManager;
-import easybraindev.quickfilegrabber.domain.FileFormatter;
-import easybraindev.quickfilegrabber.domain.FileManager;
-import easybraindev.quickfilegrabber.domain.FileSelectionHandler;
+import easybraindev.quickfilegrabber.domain.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +28,7 @@ public class QuickFileGrabberPanel extends JPanel {
     private final DefaultListModel<String> fileListModel;
     private final JButton copySelectedButton;
     private final JButton copyAllButton;
-
+    private final JCheckBox removeImportsCheckBox;
     private final FileManager fileManager = new FileManager();
     private final ClipboardManager clipboardManager = new ClipboardManager();
     private final FileFormatter fileFormatter = new FileFormatter();
@@ -45,10 +42,9 @@ public class QuickFileGrabberPanel extends JPanel {
         fileList = new JBList<>(fileListModel);
         copySelectedButton = new JButton("Copy Selected");
         copyAllButton = new JButton("Copy All");
-
+        removeImportsCheckBox = new JCheckBox("Remove TypeScript Imports");
         copySelectedButton.addActionListener(new CopySelectedListener());
         copyAllButton.addActionListener(new CopyAllListener());
-
         populateFileList();
         createUiPanel();
         registerFileEditorManagerListener(project);
@@ -61,6 +57,10 @@ public class QuickFileGrabberPanel extends JPanel {
         buttonPanel.add(copySelectedButton);
         buttonPanel.add(copyAllButton);
         this.add(buttonPanel, BorderLayout.SOUTH);
+        JPanel optionPanel = new JPanel(new FlowLayout());
+        removeImportsCheckBox.setSelected(true);
+        optionPanel.add(removeImportsCheckBox);
+        this.add(optionPanel, BorderLayout.NORTH);
     }
 
     private void registerFileEditorManagerListener(Project project) {
@@ -87,7 +87,9 @@ public class QuickFileGrabberPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             List<String> selectedFilesNames = fileList.getSelectedValuesList();
-            copyFilesContentToClipboardUseCase.execute(selectedFilesNames);
+            FormattingConfiguration config = new FormattingConfiguration();
+            config.setRemoveTypeScriptImports(removeImportsCheckBox.isSelected());
+            copyFilesContentToClipboardUseCase.execute(selectedFilesNames, config);
         }
     }
 
@@ -95,7 +97,9 @@ public class QuickFileGrabberPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             List<String> allFilesNames = Collections.list(fileListModel.elements());
-            copyFilesContentToClipboardUseCase.execute(allFilesNames);
+            FormattingConfiguration config = new FormattingConfiguration();
+            config.setRemoveTypeScriptImports(removeImportsCheckBox.isSelected());
+            copyFilesContentToClipboardUseCase.execute(allFilesNames, config);
         }
     }
 }

@@ -17,3 +17,5 @@ Hsrc/main/java/easybraindev/quickfilegrabber/domain/ClipboardManager.java,8\a\8
 \src/main/java/easybraindev/quickfilegrabber/usecases/CopyFilesContentToClipboardUseCase.java,6\1\61b957e02967121771ed55a13c39aece3837ed42
 s
 Csrc/main/java/easybraindev/quickfilegrabber/domain/FileManager.java,9\5\95b66b47d6d0543023858679f9a6420e144faa1d
+
+Osrc/main/java/easybraindev/quickfilegrabber/domain/FormattingConfiguration.java,2\8\289049866d3a01f52289e0ea5291f1fcf587cdec
